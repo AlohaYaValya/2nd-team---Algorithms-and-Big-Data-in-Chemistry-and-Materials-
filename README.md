@@ -69,3 +69,49 @@ ___
 |dtype: | float64
 ____
 
+### Import the built-in json module, which allows you to work with data in JSON format.
+# Filling data
+insert the publication dates of the articles in the 'Date' column for all rows that meet the search conditions.
+```python
+import json
+with open('data_filled.json', 'r') as f:
+    data_to_fill = json.load(f)'   
+ ```
+___
+|Name of the column|Missing value|
+|:-----|-----:|
+|DOI|                       0.000000|
+|Date|                      0.000000|
+|Journal|                   0.000000|
+|Title|                     0.000000|
+|Name  |                    0.001001|
+|measurement_error|         0.000000|
+|measurement_wavelength|    0.885709|
+|measurement_method     |   0.000000|
+|normalised_name         |  0.411729|
+|raw_value                | 0.000000|
+|specifier                 |0.000000|
+|dtype: | float64
+___
+
+# Filling in SMILES
+When the PubChem API queries a connection name, it returns a JSON response and then the code extracts SMILES from that response. If there is an error in the query, a NaN value is added to the list of SMILES for the corresponding connection.
+
+After retrieving SMILES for each connection, the code adds them to the original dataset (dataframe) and saves the updated dataframe in a new TSV format file.
+After running a query in PubChem, run a query in another API, and fill in the missing lines of SMILES with the remaining lines
+___
+|Name of the column|Missing value|
+|:-----|-----:|
+|DOI|                       0.000000|
+|Date|                      0.000000|
+|Journal|                   0.000000|
+|Title|                     0.000000|
+|Name  |                    0.000000|
+|measurement_error|         0.000000|
+|measurement_wavelength|    0.885709|
+|measurement_method     |   0.000000|
+|normalised_name         |  0.411729|
+|raw_value                | 0.000000|
+|specifier                 |0.000000|
+|dtype: | float64
+___
