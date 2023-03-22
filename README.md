@@ -115,3 +115,35 @@ ___
 |specifier                 |0.000000|
 |dtype: | float64
 ___
+# Fixing raw values
+```python
+raw_value_pattern = r'^\d+(\.\d+)?$'
+```
+***Percentage of values that match the pattern: 91.44%**
+As the result i have a list of patterns: ['X', 'X±X', 'X []', 'X–X', 'X to X', 'X−X', 'X ± X', 'X ± X', 'X (X)', '∼X', '~X', 'X ± X', 'X-X', 'X, X, X', 'X + iX', 'X (EtOH)', 'X, X', 'X +', 'X,X ± X,X', 'X at X μm', '<X', 'X–X (this)', 'X X X X', 'X*', 'X+Xi', 'X; X; X', 'Xe']  write a code for each pattern:
+___
+
+
+
+# Fixing names
+Then we use the PubCham library to get the chemical formula for the compound name
+>Executes a normalised_name query and enters the required chemical formula in the Formula column
+
+|Name of the column|Missing value|
+|:-----|-----:|
+|DOI|                       0.000000|
+|Date|                      0.000000|
+|Journal|                   0.000000|
+|Title|                     0.000000|
+|Name  |                    0.000000|
+|measurement_error|         0.000000|
+|measurement_wavelength|    0.885709|
+|measurement_method     |   0.000000|
+|normalised_name         |  0.411729|
+|raw_value                | 0.000000|
+|specifier                 |0.000000|
+|Formula                |   0.311558|
+|dtype: | float64
+_____
+
+# Getting descriptors
