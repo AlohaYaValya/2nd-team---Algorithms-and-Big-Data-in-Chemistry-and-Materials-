@@ -147,3 +147,38 @@ Then we use the PubCham library to get the chemical formula for the compound nam
 _____
 
 # Getting descriptors
+create descriptor calculator with all descriptors in PubChem RDkit Morder
+___
+
+
+### Cleansing the dataset
+Let's drop a column named 'measurement_wavelength', cause almost 90% of it is missing. It could ne collected only from papers, and it will defenetly take too much time for us to care about it. I know it can be a very important parameter, i guess the target parameter changes a lot with the changing of this feature, but we still need to drop it, cause the prediction could be spoiled by that.
+```python
+df_ww = df_unique.drop(columns=['measurement_wavelength'])
+```
+You can notice that the percentage of missing values for columns ('complexity', 'molecular_weight', 'exact_mass' and 'tpsa') is the same. It is assumed that these are the same columns, and that in addition to these basic parameters, other parameters are missing there.
+___
+## Outlier detection
+Outliers are data points that fall significantly outside the range of most of the other data points in a dataset. They can be caused by measurement errors, extreme values, or other factors. Outliers can skew statistical analyses, leading to incorrect conclusions
+
+Visualizing the outliers
+
+![image](табличка.png)
+![image](табличка2.png)
+![image](табличка3.png)
+____
+**let's find the outliers using IQR method**
+>For now we have 2941 samples out of initial 5000
+![image](табличка4.png)
+___
+## Outliers capping
+In some cases, it may be appropriate to remove outliers from the dataset. However, in many cases, it is better to cap the outliers by replacing them with the corresponding upper or lower limit, as removing them can result in loss of information and bias in the analysis.
+
+Capping the outliers means that the data will still be retained, but any extreme values that could potentially skew the analysis will be brought back into the range of the rest of the data. This can help to ensure that statistical analyses are more accurate and reliable.
+
+![image](табличка5.png)
+
+***Now our value distribution looks much better, no outliers***
+____
+# Data transformation
+Let's explore what are the types of values we have in our columns
